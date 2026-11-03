@@ -1,0 +1,27 @@
+/* SheetWeave nesting subset, not a full Sass compiler. */
+.report {
+    font-family: "微软雅黑";
+    font-size: 11pt;
+    color: #333333;
+
+    .title {
+        font-size: 20pt;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    thead {
+        th {
+            background-color: #305496;
+            color: #ffffff;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+
+    .money {
+        text-align: right;
+        -excel-number-format: "#,##0.00";
+        &.negative { color: #c62828; }
+    }
+}

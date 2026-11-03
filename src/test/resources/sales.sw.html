@@ -1,0 +1,20 @@
+<sw:workbook xmlns:sw="urn:sheetweave">
+  <sw:sheet name="销售月报" widths="22,18,18" freeze-rows="4" class="report">
+    <sw:text span="3" class="title" height="30">销售月报</sw:text>
+    <sw:spacer rows="1" />
+    <table>
+      <thead>
+        <tr><th rowspan="2">客户</th><th colspan="2">销售情况</th></tr>
+        <tr><th>金额</th><th>状态</th></tr>
+      </thead>
+      <tbody>
+        <tr sw:each="order : orders" sw:if="order.visible">
+          <td sw:value="order.customer" />
+          <td sw:value="order.amount" class="money" />
+          <td><sw:choose><sw:when test="order.amount >= 10000">大额</sw:when><sw:otherwise>普通</sw:otherwise></sw:choose></td>
+        </tr>
+      </tbody>
+    </table>
+    <sw:text sw:if="showNote">备注：<sw:out value="note" /></sw:text>
+  </sw:sheet>
+</sw:workbook>
